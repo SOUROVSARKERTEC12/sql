@@ -8,10 +8,7 @@ const Post = sequelize.define('Post', {
   },
   content: {
     type: DataTypes.TEXT,
-  },
-  // userId: {
-  //   type: DataTypes.INTEGER,
-  // },
+  }
 });
 
 export default Post;
