@@ -16,10 +16,20 @@ const createUser = async (req, res) => {
 const getUserPosts = async (req, res) => {
   const userId = req.params.userId;
   try {
-    const userWithPosts = await User.findOne({
+    const userWithPosts = (await User.findOne({
       where: { id: userId },
-      include: Post,  // This creates an INNER JOIN to include posts
-    });
+      include: [
+        {
+          model: Post,
+          as: 'posts',
+          attributes: ['id', 'title', 'content', 'createdAt'],
+        },
+      ],
+      nest: true, // Optional: Use if you want plain objects
+    })).get({plain: true})
+
+
+
     if (userWithPosts) {
       res.json(userWithPosts);
     } else {

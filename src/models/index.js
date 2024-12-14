@@ -3,8 +3,7 @@ import Post from './Post.js';
 import sequelize from '../config/config.js';
 
 
-User.hasMany(Post)
-Post.belongsTo(User, { foreignKey: 'id' });
+
 
 sequelize.sync().then(() => {
     console.log('Database synchronized');
