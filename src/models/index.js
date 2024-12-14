@@ -4,7 +4,7 @@ import sequelize from '../config/config.js';
 
 
 User.hasMany(Post)
-Post.belongsTo(User);
+Post.belongsTo(User, { foreignKey: 'id' });
 
 sequelize.sync().then(() => {
     console.log('Database synchronized');

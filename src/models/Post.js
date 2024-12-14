@@ -1,5 +1,6 @@
-import {Sequelize,DataTypes } from 'sequelize';
+import {Sequelize, DataTypes} from 'sequelize';
 import sequelize from '../config/config.js';
+import User from "./User.js";
 
 const Post = sequelize.define('Post', {
   title: {
@@ -8,7 +9,10 @@ const Post = sequelize.define('Post', {
   },
   content: {
     type: DataTypes.TEXT,
-  }
+  },
+  // userId: {
+  //   type: DataTypes.INTEGER,
+  // },
 });
 
 export default Post;

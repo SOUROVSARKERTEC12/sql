@@ -7,7 +7,7 @@ const createPost = async (req, res) => {
   console.log(userId);
   
   try {
-    const newPost = await Post.create({ title, content, UserId: userId });
+    const newPost = await Post.create({ title, content,  userId });
   
     res.status(201).json(newPost);
   } catch (error) {
